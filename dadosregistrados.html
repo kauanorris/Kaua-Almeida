@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trab 3</title>
+    <link rel="stylesheet" href="dadosderegistro.css">
+</head>
+<body>
+    <header >
+        <nav>
+            <ul>
+                <li><a href="frontPage.html">Eventos</a></li>
+                <li><a href="registramento.html" >Login/Registration</a></li>
+                <li><a href="dadosregistrados.html">Dados de Cadastro</a></li>
+                <li><a href="gridteste.html">Competidores</a></li>
+                <button id="modoNoturno" onclick="alternarModoNoturno()">Modo Noturno</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Dados cadastrados do site</h1>
+        <hr>
+        <section id="formulario">
+            <form name="form1">
+                <label for="texto">Pesquisar nome:</label>
+                <input type="text" name="texto" id="texto"> 
+        </section>
+        <hr>
+    <table id="tabela">
+        <tr> <!---linha 1-->
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Data de criação da conta</td>
+            <td>Total apostado</td>
+        </tr>
+        <tr> <!---linha 2-->
+            <td>André Costa Straub Duarte</td>
+            <td>andre.straub@gmail.com</td>
+            <td>11/09/2001</td>
+            <td>R$2.500,00</td>
+        </tr>
+        <tr> <!---linha 3-->
+            <td>Elma Maria dos Santos</td>
+            <td>elma.maria@gmail.com</td>
+            <td>22/03/2008</td>
+            <td>R$5.351,00</td>
+        </tr>
+        <tr> <!---linha 4-->
+            <td>Joel da Silva Schwarzenegger</td>
+            <td>joel.silva@gmail.com</td>
+            <td>06/12/2004</td>
+            <td>R$7.673,98</td>
+        </tr>
+        <tr> <!---linha 5-->
+            <td>Arnaldo Sacomani</td>
+            <td>arnaldo.sacomani@gmail.com</td>
+            <td>31/10/2015</td>
+            <td>R$10.560,00</td>
+        </tr>
+        <tr> <!---linha 6-->
+            <td>Henriquinhas Perri</td>
+            <td>henriquinhas.peri@gmail.com</td>
+            <td>15/10/2023</td>
+            <td>R$253.069,01</td>
+        </tr>
+        <tr id="novaLinha" style="display: none;">
+            <td><input type="text" id="nome"></td>
+            <td><input type="text" id="email"></td>
+            <td><input type="text" id="data"></td>
+            <td><input type="text" id="aposta"></td>
+        </tr>
+    
+            <button onclick="adicionarUsuario()">Adicionar Usuário</button>
+        
+    </table>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const modoNoturnoSalvo = localStorage.getItem('modoNoturno');
+            
+    if (modoNoturnoSalvo === 'ativo') {
+      ativarModoNoturno();
+    }
+  });
+        
+  function alternarModoNoturno() {
+    const corpo = document.body;
+    const modoNoturnoAtivo = corpo.classList.toggle('modo-noturno');
+       
+    if (modoNoturnoAtivo) {
+      localStorage.setItem('modoNoturno', 'ativo');
+    } else {
+      localStorage.setItem('modoNoturno', 'inativo');
+      }
+    }
+        
+  function ativarModoNoturno() {
+    document.body.classList.add('modo-noturno');
+  }
+        
+  function desativarModoNoturno() {
+    document.body.classList.remove('modo-noturno');
+  }
+                
+  function adicionarUsuario() {
+            const tabela = document.getElementById('tabela');
+            const novaLinha = tabela.insertRow(tabela.rows.length);
+
+            const dadosNovoUsuario = ["Novo Usuário", "novo.usuario@gmail.com", "01/01/2023", "R$0,00"];
+
+            for (let i = 0; i < dadosNovoUsuario.length; i++) {
+                const novaCelula = novaLinha.insertCell(i);
+                novaCelula.textContent = dadosNovoUsuario[i];
+            }
+        }
+    </script>
+</main>
+<footer>
+    <p>&copy; Lucassino</p>
+</footer>
+</body>
+</html>

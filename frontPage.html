@@ -1,0 +1,86 @@
+<!-- Tirei do css os dados input[type="submit"] e input[type="submit"]:hover do css do registro.css
+ que eram desnecessarias-->
+<!-- Coloquei mais algumas divs e informações no cadastro -->
+<!-- Coloquei um onClick no cadastro que chama um função para verificar se o cliente colocou os dados em todos os campos -->
+<!-- Coloquei um Botao em todas as peginas que ao apertar chama o a função para verificar qual é a preferencia do clientw
+se for modo noturno ele aplica o css do modo noturno e se  ele clicar novamente ele desativa esse modo e adicionei o 
+css adequado em todas as paginas de css desse trabalho -->
+<!-- Coloquei um botão em dados registrados que quando clica nele ele adiciona uma linha com novos dados-->
+<!-- Removi grid-template-areas do grid teste que não estava sendo utilizado -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Betting Site</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header >
+        <nav>
+            <ul>
+                <li><a href="frontPage.html">Eventos</a></li>
+                <li><a href="registramento.html" >Login/Registration</a></li>
+                <li><a href="dadosregistrados.html">Dados de Cadastro</a></li>
+                <li><a href="gridteste.html">Competidores</a></li>
+                <button id="modoNoturno" onclick="alternarModoNoturno()">Modo Noturno</button>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h1>Melhor site de apostas para lutas de anões</h1>
+                <div id="featured-events">
+                <h2 >Lutas Marcadas </h2>
+            <div class="event">
+                <img width 200px src="./imagens/luta1.jpg" alt="Event 2">
+                <h3>Pablo Soquinho Vs Junin Luta Livre</h3>
+                <p>Data: 19 de <b>outubro</b>, 2023</p>
+                <p>Odd Pablo: 1.5 x Odd Junin: 2.5</p>
+                <button>APOSTAR</button>
+            </div>
+            
+            <div class="event">
+                <img src="./imagens/luta2.jpg" alt="Event 2">
+                <h3>Pedrinho Chute Baixo Vs Rogerio Boxiador</h3>
+                <p>Data: 20 de <b>outubro</b>, 2023</p>
+                <p>Odd Pedrinho: 6 x Odd Rogerio: 1.2</p>
+                <button>APOSTAR</button>
+            </div>
+        </div>
+    </section >
+    <script>
+        
+    document.addEventListener('DOMContentLoaded', function () {
+    const modoNoturnoSalvo = localStorage.getItem('modoNoturno');
+            
+    if (modoNoturnoSalvo === 'ativo') {
+      ativarModoNoturno();
+    }
+  });
+        
+  function alternarModoNoturno() {
+    const corpo = document.body;
+    const modoNoturnoAtivo = corpo.classList.toggle('modo-noturno');
+       
+    if (modoNoturnoAtivo) {
+      localStorage.setItem('modoNoturno', 'ativo');
+    } else {
+      localStorage.setItem('modoNoturno', 'inativo');
+      }
+    }
+        
+  function ativarModoNoturno() {
+    document.body.classList.add('modo-noturno');
+  }
+        
+  function desativarModoNoturno() {
+    document.body.classList.remove('modo-noturno');
+  }
+    </script>
+    <footer>
+        <p>&copy; Lucassino</p>
+    </footer>
+</body>
+</html>
+

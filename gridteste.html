@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Grid</title>
+    <link rel="stylesheet" href="gridteste.css">
+</head>
+<body>
+<div class="grid-container">
+    <header class="header">
+      <ul>
+      <li><a href="frontPage.html">Eventos</a></li>
+      <li><a href="registramento.html" >Login/Registration</a></li>
+      <li><a href="dadosregistrados.html">Dados de Cadastro</a></li>
+      <li><a href="gridteste.html">Competidores</a></li>
+      <button id="modoNoturno" onclick="alternarModoNoturno()">Modo Escuro</button>
+  </ul>
+</header>
+    <main class="main">
+        <h2>Competidores</h2>
+        <div class="item">
+            <h3>Pedrinho Chute Baixo</h3>
+            <img src="./imagens/anao1.jpg" alt="Anao 1"></td>
+            <p>Altura: 104cm</p>
+            <p>Peso: 51Kg</p>
+          </div>
+          <div class="item">
+            <h3>Pablo Soquinho</h3>
+            <img src="./imagens/anao2.jpg" alt="Anao 2"></td>
+            <p>Altura: 83cm</p>
+            <p>Peso: 47Kg</p>
+          </div>
+          <div class="item">
+            <h3>Junin Luta Livre</h3>
+            <img src="./imagens/anao3.jpg" alt="Anao 3"></td>
+            <p>Altura: 94cm</p>
+            <p>Peso: 45Kg</p>
+          </div>
+          <div class="item">
+            <h3>Rogerio Boxiador</h3>
+            <img src="./imagens/anao4.jpg" alt="Anao 4"></td>
+            <p>Altura: 78cm</p>
+            <p>Peso: 42Kg</p>
+          </div>  
+          <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const modoNoturnoSalvo = localStorage.getItem('modoNoturno');
+    
+    if (modoNoturnoSalvo === 'ativo') {
+        ativarModoNoturno();
+    }
+});
+
+function alternarModoNoturno() {
+    const corpo = document.body;
+    const modoNoturnoAtivo = corpo.classList.toggle('modo-noturno');
+    
+    
+    if (modoNoturnoAtivo) {
+        localStorage.setItem('modoNoturno', 'ativo');
+    } else {
+        localStorage.setItem('modoNoturno', 'inativo');
+    }
+}
+
+function ativarModoNoturno() {
+    document.body.classList.add('modo-noturno');
+}
+
+function desativarModoNoturno() {
+    document.body.classList.remove('modo-noturno');
+}
+        </script>      
+    </main>
+    <footer class="footer">
+        <p>&copy; Lucassino</p>
+    </footer>
+</div>
+<br><br><br>
+</body>
+</html>

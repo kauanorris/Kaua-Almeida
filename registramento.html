@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Resgistration</title>
+    <link rel="stylesheet" href="registro.css"> 
+</head>
+<body>
+    <header >
+        <ul>
+            <li><a href="frontPage.html">Eventos</a></li>
+            <li><a href="registramento.html" >Login/Registration</a></li>
+            <li><a href="dadosregistrados.html">Dados de Cadastro</a></li>
+            <li><a href="gridteste.html">Competidores</a></li>
+            <button id="modoNoturno" onclick="alternarModoNoturno()">Modo Noturno</button>
+        </ul>
+    </header>
+    <h1>Cadastro</h1>
+    <main>
+        
+    <form>
+    <div>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="genero">Gênero:</label>
+        <input type="text" id="genero" name="genero" required>
+    </div>
+    <div>
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <div>
+        <label for="confirmpassword">Confirme a senha:</label>
+        <input type="password" id="confirmpassword" name="confirmpassword" required>
+    </div>
+    <div>
+       <button type="button" onclick="validarCadastro()">Registrar</button>
+    </div>
+    </form>
+    <div id="botaoDeslogarDiv"></div>
+    </main>
+    <footer>
+        <p>&copy; Lucassino</p>
+    </footer>
+    <br><br>
+    <script src="script.js"></script>
+</body>
+<br><br>
+</html>
+
